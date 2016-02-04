@@ -12,6 +12,13 @@ class CollegeScorecard
     end
     state_colleges.each { |row| puts row[:instnm] }
   end
+
+  def top_average_faculty_salary(csv)
+    state_colleges = csv.sort_by do |row|
+      row[:avgfacsal]
+    end[0..9]
+    state_colleges.each { |row| puts row[:instnm] }
+  end
 end
 
 if __FILE__ == $0
